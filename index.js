@@ -12,7 +12,11 @@ const app = express();
 const port = 4000;
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://127.0.0.1:5173/"],
+  })
+);
 app.use(express.static("public"));
 // app.use("/images", express.static("images"));
 
