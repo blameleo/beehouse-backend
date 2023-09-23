@@ -29,7 +29,7 @@ const getNotificationsCount = async (req, res) => {
     const notifications = await NotificationModel.find({ userId }).sort({
       timestamp: -1,
     });
-
+    console.log(notifications);
     const unreadCount = notifications.filter(
       (notification) => !notification.isRead
     ).length;
