@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://127.0.0.1:5173",
+      "http://127.0.0.1:5174",
       "https://beehouse-app-frontend.vercel.app",
     ],
   })
