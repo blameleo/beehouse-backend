@@ -4,6 +4,7 @@ const JobSchema = new mongoose.Schema({
   jobId: mongoose.Schema.Types.ObjectId,
   agencyUserId: { type: String, required: true },
   agencyName: { type: String, required: true },
+  agencyPic: { type: String },
   description: { type: String, required: true },
   gender: { type: String },
   stature: { type: String },
