@@ -1,3 +1,4 @@
+const JobModel = require("../models/Jobs.js");
 const UserModel = require("../models/User.js");
 const bcrypt = require("bcrypt");
 
@@ -47,6 +48,16 @@ const updateUserProfile = async (req, res) => {
       updatedDocument,
       { new: true }
     );
+
+    const updateJobsQuery = { agencyUserId: formData._id };
+    const updateJobsDocument = {
+      $set: {
+        agencyName: formData.agencyName,
+        agencyPic: updatedDocument.$set.displayPicUrl, // Assuming displayPicUrl is the agency pic
+      },
+    };
+
+    await JobModel.updateMany(updateJobsQuery, updateJobsDocument);
 
     console.log(insertedUser);
     res.status(201).json({
